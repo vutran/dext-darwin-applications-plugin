@@ -9,7 +9,7 @@ describe('apps', () => {
     Object.defineProperty(process, 'platform', {
       value: 'darwin',
     });
-    // eslint-disable-next-line global-require
+    // eslint-disable-next-line global-require, import/no-extraneous-dependencies
     require('mac-icons').__setResolvedIconValue('FOOBAR');
   });
 

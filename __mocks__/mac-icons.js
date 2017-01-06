@@ -7,7 +7,7 @@ let iconValue = '';
  *
  * @param {String} val
  */
-macIcons.__setResolvedIconValue = val => {
+macIcons.__setResolvedIconValue = (val) => {
   iconValue = val;
 };
 

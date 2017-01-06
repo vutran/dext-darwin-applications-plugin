@@ -4,6 +4,7 @@ const osApps = require('os-apps');
 let macIcons = null;
 
 if (process.platform === 'darwin') {
+  // eslint-disable-next-line global-require
   macIcons = require('mac-icons');
 }
 
@@ -22,12 +23,12 @@ const isMatched = (query, filePath) => new RegExp(query.toLowerCase(), 'i').test
  * @param {String} filePath
  * @return {Promise} - Resolves to a Dext item schema
  */
-const toItem = (filePath) => new Promise(resolve => {
+const toItem = filePath => new Promise((resolve) => {
   const fileName = path.basename(filePath, path.extname(filePath));
 
   if (process.platform === 'darwin') {
     macIcons.getIcon(filePath)
-      .then(iconStr => {
+      .then((iconStr) => {
         resolve({
           title: fileName,
           subtitle: filePath,
@@ -38,21 +39,21 @@ const toItem = (filePath) => new Promise(resolve => {
         });
       });
   } else {
-      resolve({
-        title: fileName,
-        subtitle: filePath,
-        arg: filePath,
-        icon: {
-          type: 'text',
-          letter: fileName.substr(0, 1).toUpperCase(),
-        },
-      });
+    resolve({
+      title: fileName,
+      subtitle: filePath,
+      arg: filePath,
+      icon: {
+        type: 'text',
+        letter: fileName.substr(0, 1).toUpperCase(),
+      },
+    });
   }
 });
 
 module.exports = {
   action: 'open',
-  query: (query) => new Promise(resolve => {
+  query: query => new Promise((resolve) => {
     const items = [];
     if (!query) {
       resolve({ items });
@@ -60,8 +61,9 @@ module.exports = {
     }
 
     osApps.getAll()
-      .then(apps => {
+      .then((apps) => {
         const itemPromises = [];
+        // eslint-disable-next-line no-plusplus
         for (let i = 0; i < apps.length; i++) {
           if (isMatched(query, apps[i])) {
             itemPromises.push(toItem(apps[i]));
