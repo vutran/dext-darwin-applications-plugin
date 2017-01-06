@@ -1,6 +1,6 @@
-# dext-mac-applications-plugin
+# dext-darwin-applications-plugin
 
-[![Travis](https://img.shields.io/travis/vutran/dext-mac-applications-plugin/develop.svg?maxAge=2592000&style=flat-square)](https://travis-ci.org/vutran/dext-mac-applications-plugin) [![Coveralls branch](https://img.shields.io/coveralls/vutran/dext-mac-applications-plugin/develop.svg?maxAge=2592000&style=flat-square)](https://coveralls.io/github/vutran/dext-mac-applications-plugin) [![license](https://img.shields.io/github/license/vutran/dext-mac-applications-plugin.svg?maxAge=2592000&style=flat-square)](LICENSE)
+[![Travis](https://img.shields.io/travis/vutran/dext-darwin-applications-plugin/develop.svg?maxAge=2592000&style=flat-square)](https://travis-ci.org/vutran/dext-darwin-applications-plugin) [![Coveralls branch](https://img.shields.io/coveralls/vutran/dext-darwin-applications-plugin/develop.svg?maxAge=2592000&style=flat-square)](https://coveralls.io/github/vutran/dext-darwin-applications-plugin) [![license](https://img.shields.io/github/license/vutran/dext-darwin-applications-plugin.svg?maxAge=2592000&style=flat-square)](LICENSE)
 
 > [Dext](https://github.com/vutran/dext) plugin to search for applications (Darwin only).
 
@@ -9,7 +9,7 @@
 ## Install
 
 ```bash
-$ dpm install dext-mac-applications-plugin
+$ dpm install dext-darwin-applications-plugin
 ```
 
 *Requires [Dext](https://github.com/vutran/dext).*

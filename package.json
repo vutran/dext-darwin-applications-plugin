@@ -1,5 +1,5 @@
 {
-  "name": "dext-mac-applications-plugin",
+  "name": "dext-darwin-applications-plugin",
   "version": "0.0.0",
   "description": "Dext plugin to search for applications (Darwin only).",
   "keywords": [
