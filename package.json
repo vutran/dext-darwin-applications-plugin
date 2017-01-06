@@ -1,0 +1,40 @@
+{
+  "name": "dext-mac-applications-plugin",
+  "version": "0.0.0",
+  "description": "Dext plugin to search for applications (Darwin only).",
+  "keywords": [
+    "dext",
+    "dext-plugin",
+    "applications",
+    "search",
+    "finder"
+  ],
+  "main": "index.js",
+  "author": "Vu Tran <vu@vu-tran.com>",
+  "license": "MIT",
+  "scripts": {
+    "postinstall": "npm run rebuild",
+    "lint": "eslint __tests__ index.js",
+    "test": "jest --coverage",
+    "rebuild": "npm rebuild --runtime=electron --target=1.4.13 --disturl=https://atom.io/download/electron --abi=50"
+  },
+  "files": [
+    "index.js",
+    "icon.png"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "babel-jest": "^16.0.0",
+    "babel-plugin-transform-async-to-generator": "^6.16.0",
+    "babel-polyfill": "^6.16.0",
+    "babel-preset-es2015": "^6.16.0",
+    "coveralls": "^2.11.14",
+    "electron-rebuild": "^1.5.5",
+    "eslint": "^3.7.1",
+    "eslint-config-airbnb-base": "^8.0.0",
+    "eslint-plugin-import": "^2.0.0",
+    "jest": "^16.0.1",
+    "mac-icons": "^0.1.2",
+    "os-apps": "^0.2.1"
+  }
+}
