@@ -1,12 +1,6 @@
 const path = require('path');
 const osApps = require('os-apps');
-
-let macIcons = null;
-
-if (process.platform === 'darwin') {
-  // eslint-disable-next-line global-require
-  macIcons = require('mac-icons');
-}
+const macIcons = require('mac-icons');
 
 /**
  * Returns true if the path matches the query
@@ -25,30 +19,17 @@ const isMatched = (query, filePath) => new RegExp(query.toLowerCase(), 'i').test
  */
 const toItem = filePath => new Promise((resolve) => {
   const fileName = path.basename(filePath, path.extname(filePath));
-
-  if (process.platform === 'darwin') {
-    macIcons.getIcon(filePath)
-      .then((iconStr) => {
-        resolve({
-          title: fileName,
-          subtitle: filePath,
-          arg: filePath,
-          icon: {
-            path: iconStr,
-          },
-        });
+  macIcons.getIcon(filePath)
+    .then((iconStr) => {
+      resolve({
+        title: fileName,
+        subtitle: filePath,
+        arg: filePath,
+        icon: {
+          path: iconStr,
+        },
       });
-  } else {
-    resolve({
-      title: fileName,
-      subtitle: filePath,
-      arg: filePath,
-      icon: {
-        type: 'text',
-        letter: fileName.substr(0, 1).toUpperCase(),
-      },
     });
-  }
 });
 
 module.exports = {
