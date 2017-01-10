@@ -22,6 +22,9 @@
     "index.js",
     "icon.png"
   ],
+  "os": [
+    "darwin"
+  ],
   "dependencies": {
     "mac-icons": "^0.1.2",
     "os-apps": "^0.2.1"
