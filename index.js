@@ -50,9 +50,10 @@ module.exports = {
             itemPromises.push(toItem(apps[i]));
           }
         }
-
         Promise.all(itemPromises)
           .then(itemsResolved => resolve({ items: itemsResolved }));
-      });
+      })
+      .catch(() => resolve({ items }));
+
   }),
 };
