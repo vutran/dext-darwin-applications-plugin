@@ -41,7 +41,7 @@ describe('apps', () => {
 
   it('should throw an error and return nothing', () => {
     require('fs').__setThrowError('FAKE_ERROR');
-    m.query('?').catch((e) => expect(e).toEqual('FAKE_ERROR'));
+    m.query('?').catch(e => expect(e).toEqual('FAKE_ERROR'));
   });
 
   it('should return nothing', async () => {

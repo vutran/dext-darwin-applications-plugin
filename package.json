@@ -6,6 +6,9 @@
     "dext",
     "dext-plugin",
     "applications",
+    "darwin",
+    "mac",
+    "osx",
     "search",
     "finder"
   ],
