@@ -2,6 +2,7 @@ const fs = {};
 
 let mockFiles = [];
 let mockFileData = '';
+let throwError = null;
 
 /**
  * Sets the mock return value for fs.readdir
@@ -22,6 +23,15 @@ fs.__setFileData = (data) => {
 };
 
 /**
+ * Sets an optional error to throw
+ *
+ * @param {String} err
+ */
+fs.__setThrowError = (err) => {
+  throwError = err;
+};
+
+/**
  * Reads the directory and apply the callback
  * with the mocked values
  *
@@ -29,6 +39,9 @@ fs.__setFileData = (data) => {
  * @param {Function} callback
  */
 fs.readdir = (directory, callback) => {
+  if (throwError) {
+    throw new Error(throwError);
+  }
   callback.call(null, null, mockFiles);
 };
 
@@ -40,6 +53,9 @@ fs.readdir = (directory, callback) => {
  * @param {Function} callback
  */
 fs.readFile = (file, callback) => {
+  if (throwError) {
+    throw new Error(throwError);
+  }
   callback.call(null, null, mockFileData);
 };
 

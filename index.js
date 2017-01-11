@@ -54,6 +54,5 @@ module.exports = {
           .then(itemsResolved => resolve({ items: itemsResolved }));
       })
       .catch(() => resolve({ items }));
-
   }),
 };
