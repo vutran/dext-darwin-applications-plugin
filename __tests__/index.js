@@ -14,11 +14,13 @@ describe('apps', () => {
   });
 
   it('should return something', async () => {
+    // eslint-disable-next-line import/newline-after-import
     require('fs').__setFiles([
       'Safari.app',
       'Google Chrome.app',
       'Firefox.app',
     ]);
+
     const results = await m.query('Safari');
     expect(results.items.length).toBe(1);
     expect(results.items).toContainEqual({
@@ -40,11 +42,13 @@ describe('apps', () => {
   });
 
   it('should throw an error and return nothing', () => {
+    // eslint-disable-next-line import/newline-after-import
     require('fs').__setThrowError('FAKE_ERROR');
     m.query('?').catch(e => expect(e).toEqual('FAKE_ERROR'));
   });
 
   it('should return nothing', async () => {
+    // eslint-disable-next-line import/newline-after-import
     require('fs').__setThrowError(null);
     const results = await m.query('');
     expect(results.items.length).not.toBeGreaterThan(0);
