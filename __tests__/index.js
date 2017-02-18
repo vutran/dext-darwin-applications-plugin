@@ -1,7 +1,6 @@
 import m from '../';
 
 jest.mock('fs');
-jest.mock('mac-icons');
 
 describe('apps', () => {
   beforeAll(() => {
@@ -9,8 +8,6 @@ describe('apps', () => {
     Object.defineProperty(process, 'platform', {
       value: 'darwin',
     });
-    // eslint-disable-next-line global-require, import/no-extraneous-dependencies
-    require('mac-icons').__setResolvedIconValue('FOOBAR');
   });
 
   it('should return something', async () => {
@@ -28,7 +25,8 @@ describe('apps', () => {
       subtitle: '/Applications/Safari.app',
       arg: '/Applications/Safari.app',
       icon: {
-        path: 'FOOBAR',
+        type: 'text',
+        letter: 'S',
       },
     });
     expect(results.items).not.toContainEqual({
@@ -36,7 +34,8 @@ describe('apps', () => {
       subtitle: '/Applications/Google Chrome.app',
       arg: '/Applications/Google Chrome.app',
       icon: {
-        path: 'FOOBAR',
+        type: 'text',
+        letter: 'G',
       },
     });
   });

@@ -1,6 +1,5 @@
 const path = require('path');
 const osApps = require('os-apps');
-const macIcons = require('mac-icons');
 
 /**
  * Returns true if the path matches the query
@@ -19,16 +18,14 @@ const isMatched = (query, filePath) => new RegExp(query.toLowerCase(), 'i').test
  */
 const toItem = filePath => new Promise((resolve) => {
   const fileName = path.basename(filePath, path.extname(filePath));
-  macIcons.getIcon(filePath)
-    .then((iconStr) => {
-      resolve({
-        title: fileName,
-        subtitle: filePath,
-        arg: filePath,
-        icon: {
-          path: iconStr,
-        },
-      });
+    resolve({
+      title: fileName,
+      subtitle: filePath,
+      arg: filePath,
+      icon: {
+        type: 'text',
+        letter: fileName.substr(0, 1),
+      },
     });
 });
 

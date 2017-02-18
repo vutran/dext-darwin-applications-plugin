@@ -16,10 +16,8 @@
   "author": "Vu Tran <vu@vu-tran.com>",
   "license": "MIT",
   "scripts": {
-    "postinstall": "npm run rebuild",
     "lint": "eslint __mocks__ __tests__ index.js",
-    "test": "jest --coverage",
-    "rebuild": "npm rebuild --runtime=electron --target=1.4.13 --disturl=https://atom.io/download/electron --abi=50"
+    "test": "jest --coverage"
   },
   "files": [
     "index.js",
@@ -33,7 +31,6 @@
     "darwin"
   ],
   "dependencies": {
-    "mac-icons": "^0.1.2",
     "os-apps": "^0.2.1"
   },
   "devDependencies": {
