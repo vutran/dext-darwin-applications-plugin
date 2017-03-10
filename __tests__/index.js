@@ -1,6 +1,7 @@
 import m from '../';
 
 jest.mock('fs');
+jest.mock('file-icon');
 
 describe('apps', () => {
   beforeAll(() => {
@@ -8,6 +9,8 @@ describe('apps', () => {
     Object.defineProperty(process, 'platform', {
       value: 'darwin',
     });
+    // eslint-disable-next-line global-require, import/no-extraneous-dependencies
+    require('file-icon').__setIconValue('FOOBAR');
   });
 
   it('should return something', async () => {
@@ -25,8 +28,8 @@ describe('apps', () => {
       subtitle: '/Applications/Safari.app',
       arg: '/Applications/Safari.app',
       icon: {
-        type: 'text',
-        letter: 'S',
+        type: 'file',
+        path: 'data:image/png;base64,Rk9PQkFS',
       },
     });
     expect(results.items).not.toContainEqual({
@@ -34,8 +37,8 @@ describe('apps', () => {
       subtitle: '/Applications/Google Chrome.app',
       arg: '/Applications/Google Chrome.app',
       icon: {
-        type: 'text',
-        letter: 'G',
+        type: 'file',
+        path: 'data:image/png;base64,Rk9PQkFS',
       },
     });
   });
