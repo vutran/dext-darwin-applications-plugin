@@ -9,7 +9,7 @@ const fileIcon = require('file-icon');
  * @param {String} filePath
  * @return {Boolean} Returns true if matched
  */
-const isMatched = (query, filePath) => new RegExp(query.toLowerCase(), 'i').test(filePath);
+const isMatched = (query, filePath) => filePath.indexOf(query) > -1;
 
 /**
  * Converts an application path to an item
@@ -44,10 +44,11 @@ module.exports = {
 
     osApps.getAll()
       .then((apps) => {
+        const q = query.toLowerCase();
         const itemPromises = [];
         // eslint-disable-next-line no-plusplus
         for (let i = 0; i < apps.length; i++) {
-          if (isMatched(query, apps[i])) {
+          if (isMatched(q, apps[i].toLowerCase())) {
             itemPromises.push(toItem(apps[i]));
           }
         }
