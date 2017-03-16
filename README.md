@@ -30,15 +30,12 @@ In Dext, just start typing your application name.
 
   **With `npm`:**
 
-    ```
     $ npm install
-    ```
 
   **With [`yarn`](https://github.com/yarnpkg/yarn):**
 
-    ```
     $ yarn
-    ```
+
 3. Run tests: `npm t`
 
 ## License
